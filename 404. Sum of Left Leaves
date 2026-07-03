@@ -1,0 +1,14 @@
+class Solution {
+    public int sumOfLeftLeaves(TreeNode root) {
+        return add(root,false);
+    }
+    public int add(TreeNode node,boolean isleft){
+        if(node==null){
+            return 0;
+        }
+        if(node.left==null && node.right==null){
+            return isleft?node.val:0;
+        }
+        return add(node.left,true)+add(node.right,false);
+    }
+}
